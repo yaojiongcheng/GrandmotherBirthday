@@ -6,21 +6,11 @@
 		<link href="//unpkg.com/layui@2.7.5/dist/css/layui.css" rel="stylesheet">
 	</head>
 	<body>
-	<script src="//unpkg.com/layui@2.7.5/dist/layui.js"></script>
+		<script src="//unpkg.com/layui@2.7.5/dist/layui.js"></script>
 		<script>
 			function manage() {
 				location.href = "./manage.html";
-			}
-			function closePage(){
-			    if(navigator.userAgent.indexOf("Firefox") != -1 || navigator.userAgent.indexOf("Chrome") != -1){
-			        window.location.href = "about:blank";
-			        window.close();
-			    }else{
-			        window.opener = null;
-			        window.open("", "_self");
-			        window.close();
-			    }
-			}		
+			}	
 			</script>
 		<ul class="layui-nav">
 		  <li class="layui-nav-item">
@@ -30,11 +20,7 @@
 		    <a href="">个人中心</a>
 		  </li>
 		  <li class="layui-nav-item">
-		    <a href=""><img src="./photo.jpg" class="layui-nav-img">我</a>
-		    <dl class="layui-nav-child">
-		      <dd><a onclick="manage()" href="javascript:;">管理</a></dd>
-		      <dd><a onclick="closePage()" href="javascript:;">退出</a></dd>
-		    </dl>
+		    <a onclick="manage()" href="./manage.html"><img src="../photo/photo.jpg" class="layui-nav-img">我</a>
 		  </li>
 		</ul>
 	</body>
