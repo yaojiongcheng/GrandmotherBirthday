@@ -14,6 +14,33 @@
 				.lovefall:before {transform: rotate(-45deg);}
 				.lovefall:after {transform: rotate(45deg);left:7px;}
 			</style>
+			<style>
+			    .snowfall-flakes:before {
+			        content: "";
+			        /*绝对定位*/
+			        position: absolute;
+			        left: 0px;
+			        top: 0px;
+			        width: 10px;
+			        height: 16px;
+			        transform: rotate(-45deg);
+			        background-color: red;
+			        border-radius: 5px 5px 1px 1px;
+			    }
+			
+			    .snowfall-flakes:after {
+			        content: "";
+			        /*激活伪元素的必要因素*/
+			        position: absolute;
+			        left: 0px;
+			        top: 0px;
+			        width: 10px;
+			        height: 16px;
+			        transform: translateX(4.3px) rotate(45deg);
+			        background-color: red;
+			        border-radius: 5px 5px 1px 1px;
+			    }
+			</style>
 	</head>
 	<style>
 		body 
@@ -26,6 +53,15 @@
 		}
 	</style>
 	<body>
+		<div class="wrap"></div>
+		<script type="text/javascript" src="jquery-3.4.1.js"></script>
+		<script type="text/javascript" src="snowfall.jquery.js"></script>
+		<script type="text/javascript">
+		    $(document).snowfall({
+		        flakeCount: 10,
+		        maxSpeed: 0.5
+		    });
+		</script>
 		<script>
 			/**显示鼠标点击出现小红心*/
 				! function(e, t, a) {
@@ -129,5 +165,6 @@
 			<div style="text-align: center; font-size: 200%;">
 				<p>恭祝福禄与天齐，儿孙孝顺身边围；荣华富贵卧福地，人寿年康全家安。</p>
 			</div>
+			<audio src="./happyMusic.mp3" loop="loop" controls="autoplay" autoplay="autoplay" preload="auto" hidden="true"></audio>
 	</body>
 </html>
