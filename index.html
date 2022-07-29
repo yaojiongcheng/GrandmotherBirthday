@@ -167,7 +167,23 @@
 			</div>
 			<script type="text/javascript" src="jquery-3.4.1.js"></script>
 			<script type="text/javascript">
+				
 				$(function(){
+					getTime();
+						function calculateDate(){
+						    var date = new Date();
+						    var Month = date.getMonth()+1;
+						    if(Month<10){
+						        var Month = "0"+(date.getMonth()+1);
+						    }else{
+						        return true;
+						    }
+						    var weeks = ["日","一","二","三","四","五","六"];
+						    return date.getFullYear()+"年"+Month+"月"+date.getDate()+"日 星期"+weeks[date.getDay()];
+						}
+						function getTime() {
+							document.getElementById('datetime').innerHTML = calculateDate();
+						}
 					 $("#music").click(function(){
 						 var audio = document.getElementById("audio");
 						if(audio.paused){
@@ -184,7 +200,8 @@
 					})
 				})
 			</script>
+			<p id="datetime" style="position: fixed;bottom:0;left:50%;font-size:170%;"></p>
 			<button id="music" class="layui-btn layui-btn-normal" style="position: fixed;bottom: 0; font-size:200%; cursor: pointer;" >播放</button>
-			<audio id="audio" src="./happyMusic.mp3" loop="loop" controls="controls" autoplay="autoplay" preload="auto" hidden="true"></audio>
+			<audio id="audio" src="./happyMusic.wav" loop="loop" controls="controls" autoplay="autoplay" preload="auto" hidden="true"></audio>
 	</body>
 </html>
