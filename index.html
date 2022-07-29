@@ -59,7 +59,7 @@
 		<script type="text/javascript">
 		    $(document).snowfall({
 		        flakeCount: 10,
-		        maxSpeed: 0.5
+		        maxSpeed: 2
 		    });
 		</script>
 		<script>
@@ -165,6 +165,26 @@
 			<div style="text-align: center; font-size: 200%;">
 				<p>恭祝福禄与天齐，儿孙孝顺身边围；荣华富贵卧福地，人寿年康全家安。</p>
 			</div>
-			<audio src="./happyMusic.mp3" loop="loop" controls="autoplay" autoplay="autoplay" preload="auto" hidden="true"></audio>
+			<script type="text/javascript" src="jquery-3.4.1.js"></script>
+			<script type="text/javascript">
+				$(function(){
+					 $("#music").click(function(){
+						 var audio = document.getElementById("audio");
+						if(audio.paused){
+							audio.play();
+							$("#audio").removeClass("pause").addClass("play");
+							var music = document.getElementById("music");
+							music.innerHTML = "停止";
+						}else{
+							audio.pause();
+							$("#audio").removeClass("play").addClass("pause");
+							var music = document.getElementById("music");
+							music.innerHTML = "播放";
+						}
+					})
+				})
+			</script>
+			<button id="music" class="layui-btn layui-btn-normal" style="position: fixed;bottom: 0; font-size:200%; cursor: pointer;" >播放</button>
+			<audio id="audio" src="./happyMusic.mp3" loop="loop" controls="controls" autoplay="autoplay" preload="auto" hidden="true"></audio>
 	</body>
 </html>
